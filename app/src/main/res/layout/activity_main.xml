@@ -4,66 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="@color/white2">
+    android:background="@color/white2"
+    tools:context=".LoginActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/landingPageIV"
-        android:layout_width="385dp"
-        android:layout_height="385dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/landingPage"
+        android:layout_width="366dp"
+        android:layout_height="376dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
         android:src="@drawable/landing_page"
-        app:layout_constraintBottom_toTopOf="@+id/nameApp"
+        app:layout_constraintBottom_toTopOf="@+id/storyUserDicoding"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearanceOverlay="@style/roundedImageView" />
 
     <Button
-        android:id="@+id/login"
-        android:layout_width="210dp"
-        android:layout_height="53dp"
+        android:id="@+id/getStarted"
+        android:layout_width="357dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/navy"
-        android:text="@string/login"
+        android:text="@string/get_started"
         android:textColor="@color/white2"
-        app:layout_constraintBottom_toTopOf="@+id/register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameApp" />
-
-    <Button
-        android:id="@+id/register"
-        android:layout_width="210dp"
-        android:layout_height="53dp"
-        android:backgroundTint="@color/white3"
-        android:text="@string/register"
-        android:textColor="@color/navy"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_onboarding"
+        app:layout_constraintVertical_bias="0.175" />
 
     <TextView
-        android:id="@+id/nameApp"
+        android:id="@+id/storyUserDicoding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="444dp"
         android:fontFamily="@font/convergence"
-        android:text="Name_App"
+        android:text="@string/story_user_dicoding"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="34sp"
         android:textStyle="bold"
         android:typeface="sans"
-        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/tv_onboarding"
+        android:layout_width="286dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/tv_onboarding_storyUserDicoding"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/landingPageIV" />
+        app:layout_constraintTop_toBottomOf="@+id/storyUserDicoding" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

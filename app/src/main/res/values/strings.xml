@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">StoryApp</string>
     <string name="login">Login</string>
-    <string name="register">Register</string>
+    <string name="register">Register now</string>
+    <string name="get_started">Get started</string>
+    <string name="input_pass">Please input your password</string>
+    <string name="pass_minimum_length">Password must be at least 8 characters long</string>
+    <string name="story_user_dicoding">Story User Dicoding</string>
+    <string name="tv_onboarding_storyUserDicoding">share your story and see what interesting stories others are sharing</string>
+    <string name="password">Password</string>
+    <string name="email">Email address</string>
+    <string name="don_t_have_an_account_yet"> ------- Don\'t have an account yet? -------</string>
 </resources>
