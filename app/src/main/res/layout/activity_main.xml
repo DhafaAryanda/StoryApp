@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/LandingPage"
+        android:src="@drawable/landing_page"
         app:layout_constraintBottom_toTopOf="@+id/nameApp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
