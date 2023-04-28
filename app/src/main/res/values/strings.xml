@@ -15,4 +15,7 @@
     <string name="already_have_account"> ------- Already have an account? -------</string>
     <string name="name">Name</string>
     <string name="input_name">Enter your full name</string>
+    <string name="camera">camera</string>
+    <string name="upload">upload</string>
+    <string name="description">description</string>
 </resources>
