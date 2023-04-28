@@ -109,6 +109,8 @@ class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
         super.onDraw(canvas)
         hint = "Enter your email"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
+        //mengecilkan font
+
     }
 
 }
