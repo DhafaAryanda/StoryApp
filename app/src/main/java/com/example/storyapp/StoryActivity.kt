@@ -3,9 +3,9 @@ package com.example.storyapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class StoryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.item_list_story)
+        setContentView(R.layout.activity_story)
     }
 }

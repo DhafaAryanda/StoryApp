@@ -21,4 +21,6 @@
     <string name="description">description</string>
     <string name="gallery">gallery</string>
     <string name="photo">photo</string>
+    <string name="no_data">no data</string>
+    <string name="add_story">add story</string>
 </resources>
