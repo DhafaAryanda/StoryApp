@@ -6,13 +6,14 @@ import android.graphics.drawable.Drawable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Patterns
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 
 class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
-
+    private var isValidEmail: Boolean = false
     private lateinit var clearButtonImage: Drawable
 
     constructor(context: Context) : super(context) {
@@ -40,7 +41,16 @@ class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
                 if (s.toString().isNotEmpty()) showClearButton() else hideClearButton()
             }
             override fun afterTextChanged(s: Editable) {
-                // Do nothing.
+                val email = text?.trim()
+                if (email.isNullOrEmpty()) {
+                    isValidEmail = false
+                    error = resources.getString(R.string.input_email)
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    isValidEmail = false
+                    error = resources.getString(R.string.invalid_email)
+                } else {
+                    isValidEmail = true
+                }
             }
         })
     }
@@ -109,8 +119,6 @@ class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
         super.onDraw(canvas)
         hint = "Enter your email"
         textAlignment = View.TEXT_ALIGNMENT_VIEW_START
-        //mengecilkan font
-
     }
 
 }

@@ -4,7 +4,8 @@
     <string name="register">Register</string>
     <string name="register_now">Register now</string>
     <string name="get_started">Get started</string>
-
+    <string name="input_email">Please input your email</string>
+    <string name="invalid_email">Email is invalid</string>
     <string name="input_pass">Please input your password</string>
     <string name="pass_minimum_length">Password must be at least 8 characters long</string>
     <string name="story_user_dicoding">Story User Dicoding</string>
@@ -18,4 +19,6 @@
     <string name="camera">camera</string>
     <string name="upload">upload</string>
     <string name="description">description</string>
+    <string name="gallery">gallery</string>
+    <string name="photo">photo</string>
 </resources>
