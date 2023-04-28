@@ -8,7 +8,7 @@
     android:background="@color/white2">
 
     <TextView
-        android:id="@+id/nameApp"
+        android:id="@+id/tv_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
@@ -25,23 +25,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_register_email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="5dp"
         android:text="@string/email"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/email_custom_view"
+        app:layout_constraintBottom_toTopOf="@+id/ed_register_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameregister"
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_name"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/nameregister"
-        android:layout_width="0dp"
+        android:id="@+id/ed_register_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="16dp"
@@ -56,22 +58,24 @@
         android:hint="@string/input_name"/>
 
     <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_register_name"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="5dp"
         android:text="@string/name"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/nameregister"
+        app:layout_constraintBottom_toTopOf="@+id/ed_register_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameApp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_register"
         app:layout_constraintVertical_bias="1.0" />
 
     <com.example.storyapp.EmailCustomView
-        android:id="@+id/email_custom_view"
+        android:id="@+id/ed_register_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
@@ -83,40 +87,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameregister" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_name" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_register_password"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="11dp"
         android:layout_marginBottom="5dp"
         android:text="@string/password"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/pass_custom_view"
+        app:layout_constraintBottom_toTopOf="@+id/ed_register_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_custom_view"
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_email"
         app:layout_constraintVertical_bias="1.0" />
 
     <com.example.storyapp.PassCustomView
-        android:id="@+id/pass_custom_view"
+        android:id="@+id/ed_register_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
-
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_custom_view" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_email" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/btn_register"
         android:layout_width="210dp"
         android:layout_height="53dp"
         android:layout_marginTop="32dp"
@@ -127,6 +132,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass_custom_view" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_register_password" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

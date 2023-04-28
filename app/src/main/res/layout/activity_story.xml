@@ -30,7 +30,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@android:color/white"
-        android:contentDescription="@string/add_story" />
+        android:contentDescription="@string/add_story"
+        android:backgroundTint="@color/purple_900"/>
 
     <TextView
         android:id="@+id/no_data"
