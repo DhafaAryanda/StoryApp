@@ -1,4 +1,4 @@
-package com.example.storyapp
+package com.example.storyapp.ui.customview
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
+import com.example.storyapp.R
 
 class PassCustomView : AppCompatEditText {
 

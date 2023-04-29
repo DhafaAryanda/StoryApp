@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".ui.activity.LoginActivity"
     android:background="@color/white2">
 
     <TextView
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login"
         app:layout_constraintVertical_bias="1.0" />
 
-    <com.example.storyapp.EmailCustomView
+    <com.example.storyapp.ui.customview.EmailCustomView
         android:id="@+id/ed_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ed_login_email"
         app:layout_constraintVertical_bias="1.0" />
 
-    <com.example.storyapp.PassCustomView
+    <com.example.storyapp.ui.customview.PassCustomView
         android:id="@+id/ed_login_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

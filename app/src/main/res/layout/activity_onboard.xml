@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white2"
-    tools:context=".LoginActivity">
+    tools:context=".ui.activity.LoginActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/landingPage"
+        android:id="@+id/iv_onboard"
         android:layout_width="366dp"
         android:layout_height="376dp"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
-        android:src="@drawable/landing_page"
+        android:src="@drawable/onboard"
         app:layout_constraintBottom_toTopOf="@+id/tv_tittle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"

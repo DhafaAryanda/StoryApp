@@ -1,11 +1,12 @@
-package com.example.storyapp
+package com.example.storyapp.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.storyapp.R
 
-class AddStoryActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_story)
+        setContentView(R.layout.activity_login)
     }
 }

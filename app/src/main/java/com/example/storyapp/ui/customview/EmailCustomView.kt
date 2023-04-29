@@ -1,4 +1,4 @@
-package com.example.storyapp
+package com.example.storyapp.ui.customview
 
 import android.content.Context
 import android.graphics.Canvas
@@ -11,6 +11,7 @@ import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import com.example.storyapp.R
 
 class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
     private var isValidEmail: Boolean = false
@@ -74,12 +75,16 @@ class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
             if (isClearButtonClicked) {
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        clearButtonImage = ContextCompat.getDrawable(context, R.drawable.ic_baseline_close_24) as Drawable
+                        clearButtonImage = ContextCompat.getDrawable(context,
+                            R.drawable.ic_baseline_close_24
+                        ) as Drawable
                         showClearButton()
                         return true
                     }
                     MotionEvent.ACTION_UP -> {
-                        clearButtonImage = ContextCompat.getDrawable(context, R.drawable.ic_baseline_close_24) as Drawable
+                        clearButtonImage = ContextCompat.getDrawable(context,
+                            R.drawable.ic_baseline_close_24
+                        ) as Drawable
                         when {
                             text != null -> text?.clear()
                         }
