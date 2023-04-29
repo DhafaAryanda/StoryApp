@@ -14,7 +14,7 @@ import androidx.core.content.ContextCompat
 import com.example.storyapp.R
 
 class EmailCustomView : AppCompatEditText, View.OnTouchListener  {
-    private var isValidEmail: Boolean = false
+    var isValidEmail: Boolean = false
     private lateinit var clearButtonImage: Drawable
 
     constructor(context: Context) : super(context) {
