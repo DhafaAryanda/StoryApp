@@ -12,7 +12,7 @@ import com.example.storyapp.R
 
 class PassCustomView : AppCompatEditText {
 
-    private var isValidPass = false
+    var isValidPass = false
 
     constructor(context: Context) : super(context) {
         init()

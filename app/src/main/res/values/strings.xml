@@ -23,4 +23,8 @@
     <string name="photo">photo</string>
     <string name="no_data">no data</string>
     <string name="add_story">add story</string>
+    <string name="unauthorized">Please check email or password correctly</string>
+    <string name="timeout">Timeout!! please try again later</string>
+    <string name="error_message">"Error message :  "</string>
+
 </resources>
