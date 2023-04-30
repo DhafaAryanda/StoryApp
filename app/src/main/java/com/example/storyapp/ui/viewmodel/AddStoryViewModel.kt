@@ -12,10 +12,11 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class AddStoryViewModel : ViewModel() {
-    private val _message = MutableLiveData<String>()
-    val message: LiveData<String> = _message
 
+    private val _message = MutableLiveData<String>()
     private val _isLoading = MutableLiveData<Boolean>()
+
+    val message: LiveData<String> = _message
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun addStoryUser(photo: MultipartBody.Part, desc: RequestBody, token: String) {

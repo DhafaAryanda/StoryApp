@@ -10,6 +10,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterViewModel : ViewModel() {
+
     private val _message = MutableLiveData<String>()
     private val _isLoading = MutableLiveData<Boolean>()
 

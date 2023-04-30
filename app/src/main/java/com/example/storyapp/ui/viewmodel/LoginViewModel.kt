@@ -9,6 +9,7 @@ import retrofit2.Call
 import retrofit2.Response
 
 class LoginViewModel : ViewModel() {
+
     private val _message = MutableLiveData<String>()
     private val _isLoading = MutableLiveData<Boolean>()
     private val _userLogin = MutableLiveData<LoginResponse>()

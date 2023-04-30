@@ -11,9 +11,7 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
-    companion object {
-        const val EXTRA_STORY = "extra_story"
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,4 +39,9 @@ class DetailActivity : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
+    companion object {
+        const val EXTRA_STORY = "extra_story"
+    }
+
 }
