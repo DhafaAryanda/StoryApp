@@ -10,14 +10,13 @@ import retrofit2.Call
 import retrofit2.Response
 
 class StoryViewModel : ViewModel() {
-    var story: List<ListStoryResponse> = listOf()
 
     private val _message = MutableLiveData<String>()
-    val message: LiveData<String> = _message
-
     private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
 
+    val message: LiveData<String> = _message
+    val isLoading: LiveData<Boolean> = _isLoading
+    var story: List<ListStoryResponse> = listOf()
     var isError: Boolean = false
 
     fun getStories(token: String) {
@@ -26,9 +25,9 @@ class StoryViewModel : ViewModel() {
         api.enqueue(object : retrofit2.Callback<StoryResponse> {
             override fun onResponse(call: Call<StoryResponse>, response: Response<StoryResponse>) {
                 _isLoading.value = false
+                val responseBody = response.body()
                 if (response.isSuccessful) {
                     isError = false
-                    val responseBody = response.body()
                     if (responseBody != null) {
                         story = responseBody.listStory
                     }
@@ -41,8 +40,8 @@ class StoryViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<StoryResponse>, t: Throwable) {
-                _isLoading.value = false
                 isError = true
+                _isLoading.value = false
                 _message.value = t.message.toString()
             }
         })

@@ -2,13 +2,14 @@ package com.example.storyapp.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.storyapp.api.ApiConfig
 import com.example.storyapp.api.RegisterResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RegisterViewModel {
+class RegisterViewModel : ViewModel() {
     private val _message = MutableLiveData<String>()
     private val _isLoading = MutableLiveData<Boolean>()
 
@@ -36,6 +37,7 @@ class RegisterViewModel {
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 isError = true
                 _isLoading.value = false
+                _message.value = t.message.toString()
             }
         })
     }

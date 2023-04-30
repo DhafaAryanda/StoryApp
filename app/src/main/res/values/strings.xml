@@ -24,8 +24,12 @@
     <string name="no_data">no data</string>
     <string name="add_story">add story</string>
     <string name="unauthorized">Please check email or password correctly</string>
-    <string name="timeout">Timeout!! please try again later</string>
+    <string name="timeout">Timeout, please try again</string>
     <string name="create_user">User created</string>
     <string name="email_taken">Email is already taken</string>
-    <string name="error_message">"Error message :  "</string>
+    <string name="error_message">"There is an error :  "</string>
+    <string name="language_option">Change Language</string>
+    <string name="logout">Logout</string>
+    <string name="user_detail_title">%1$s\'s Story</string>
+
 </resources>
