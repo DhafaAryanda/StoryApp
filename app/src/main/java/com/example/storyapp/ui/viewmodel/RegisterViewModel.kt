@@ -10,10 +10,10 @@ import retrofit2.Response
 
 class RegisterViewModel {
     private val _message = MutableLiveData<String>()
-    val message: LiveData<String> = _message
-
     private val _isLoading = MutableLiveData<Boolean>()
+
     val isLoading: LiveData<Boolean> = _isLoading
+    val message: LiveData<String> = _message
 
     var isError: Boolean = false
 
@@ -21,10 +21,7 @@ class RegisterViewModel {
         _isLoading.value = true
         val api = ApiConfig.getApiService().registerUser(name, email, password)
         api.enqueue(object : Callback<RegisterResponse> {
-            override fun onResponse(
-                call: Call<RegisterResponse>,
-                response: Response<RegisterResponse>
-            ) {
+            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                 _isLoading.value = false
                 val responseBody = response.body()
                 if (response.isSuccessful) {
