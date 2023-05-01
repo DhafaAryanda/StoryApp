@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.activity.DetailActivity"
-    android:background="@color/white2" >
+    android:background="@color/white2"
+    android:transitionGroup="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -17,14 +18,14 @@
             android:layout_width="334dp"
             android:layout_height="334dp"
             android:layout_marginTop="44dp"
-            android:background="@color/gray"
+            android:background="@color/white2"
             android:contentDescription="@string/photo"
-            android:padding="20dp"
+            android:padding="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/onboard" />
+            app:srcCompat="@drawable/baseline_image_24" />
 
         <TextView
             android:id="@+id/tv_detail_name"

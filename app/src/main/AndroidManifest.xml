@@ -29,7 +29,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryApp"
-        tools:targetApi="31">
+        tools:targetApi="29">
         <activity
             android:name=".ui.activity.StoryActivity"
             android:exported="false" />

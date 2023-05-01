@@ -3,13 +3,15 @@ package com.example.storyapp.ui.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.storyapp.R
@@ -66,6 +68,10 @@ class StoryActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.languange_menu -> {
+                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
+                true
+            }
             R.id.logout_menu -> {
                 val appPreferences = AppPreferences(this)
                 appPreferences.isLoggedIn = false
@@ -73,10 +79,6 @@ class StoryActivity : AppCompatActivity() {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
-                true
-            }
-            R.id.languange_menu -> {
-                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
                 true
             }
             else -> true
@@ -111,16 +113,27 @@ class StoryActivity : AppCompatActivity() {
 
             listUserAdapter.setOnItemClickCallback(object : ListStoryAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: ListStoryResponse) {
-                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        this@StoryActivity,
-                        androidx.core.util.Pair.create(binding1.tvItemName, ViewCompat.getTransitionName(binding1.tvItemName)),
-                        androidx.core.util.Pair.create(binding1.ivItemPhoto, ViewCompat.getTransitionName(binding1.ivItemPhoto))
-                    )
                     val intent = Intent(this@StoryActivity, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_STORY, data)
-                    startActivity(intent, options.toBundle())
+                    startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this@StoryActivity).toBundle())
                 }
             })
         }
+    }
+
+    private var doubleBackToExitPressedOnce = false
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            doubleBackToExitPressedOnce = false
+        }, 2000)
     }
 }
