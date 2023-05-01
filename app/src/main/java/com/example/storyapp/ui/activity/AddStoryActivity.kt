@@ -184,7 +184,7 @@ class AddStoryActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show()
 
-        if (message == getString(R.string.add_story_success)) {
+        if (message == "Story created successfully") {
             startActivity(Intent(this@AddStoryActivity, StoryActivity::class.java))
             finish()
         }

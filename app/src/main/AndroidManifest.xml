@@ -29,7 +29,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryApp"
-        tools:targetApi="29">
+        tools:targetApi="31">
         <activity
             android:name=".ui.activity.StoryActivity"
             android:exported="false" />
@@ -44,10 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.activity.OnboardActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,7 +65,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>

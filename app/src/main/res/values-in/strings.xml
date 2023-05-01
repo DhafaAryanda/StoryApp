@@ -8,8 +8,6 @@
     <string name="invalid_email">Email tidak valid</string>
     <string name="input_pass">Mohon masukkan password</string>
     <string name="pass_minimum_length">Password sekurangnya memiliki 8 karakter</string>
-    <string name="story_user_dicoding">Story User Dicoding</string>
-    <string name="tv_onboarding_storyUserDicoding">menyediakan platform bagi anda untuk berbagi cerita dan melihat cerita menarik apa yang telah dibagikan orang lain</string>
     <string name="password">Kata sandi</string>
     <string name="email">Alamat email</string>
     <string name="no_account"> ------- Belum memiliki akun? -------</string>
