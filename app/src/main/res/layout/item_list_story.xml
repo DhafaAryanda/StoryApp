@@ -30,7 +30,8 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Name" />
+            tools:text="Name"
+            android:transitionName="name" />
 
         <ImageView
             android:id="@+id/iv_item_photo"
@@ -45,7 +46,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_item_name"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/baseline_image_24" />
+            app:srcCompat="@drawable/baseline_image_24"
+            android:transitionName="photo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
