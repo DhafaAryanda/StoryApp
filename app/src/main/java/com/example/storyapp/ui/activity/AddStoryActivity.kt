@@ -15,7 +15,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.FileProvider
 import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityAddStoryBinding
@@ -159,7 +158,6 @@ class AddStoryActivity : AppCompatActivity() {
                 ).show()
             }
             else -> {
-//                val file = getFile as File
                 val file = reduceFileImage(getFile as File)
                 val description = desc.toRequestBody("text/plain".toMediaType())
                 val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
