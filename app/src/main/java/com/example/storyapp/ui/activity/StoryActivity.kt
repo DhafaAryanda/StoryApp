@@ -12,7 +12,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.app.ActivityOptionsCompat
-import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.storyapp.R
@@ -114,14 +113,15 @@ class StoryActivity : AppCompatActivity() {
 
             listUserAdapter.setOnItemClickCallback(object : ListStoryAdapter.OnItemClickCallback {
                 override fun onItemClicked(data: ListStoryResponse) {
-                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        this@StoryActivity,
-                        androidx.core.util.Pair.create(binding1.tvItemName, ViewCompat.getTransitionName(binding1.tvItemName)),
-                        androidx.core.util.Pair.create(binding1.ivItemPhoto, ViewCompat.getTransitionName(binding1.ivItemPhoto))
-                    )
                     val intent = Intent(this@StoryActivity, DetailActivity::class.java)
                     intent.putExtra(DetailActivity.EXTRA_STORY, data)
-                    startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this@StoryActivity).toBundle())
+
+                    val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                        this@StoryActivity,
+                        androidx.core.util.Pair.create(binding1.tvItemName, "name"),
+                        androidx.core.util.Pair.create(binding1.ivItemPhoto, "photo")
+                    )
+                    startActivity(intent, options.toBundle())
                 }
             })
         }
