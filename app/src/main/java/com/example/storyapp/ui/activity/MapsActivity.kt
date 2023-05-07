@@ -1,12 +1,16 @@
 package com.example.storyapp.ui.activity
 
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import com.example.storyapp.R
+import com.example.storyapp.api.ListStoryResponse
 import com.example.storyapp.databinding.ActivityMapsBinding
-
+import com.example.storyapp.ui.activity.DetailActivity.Companion.EXTRA_STORY
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -25,7 +29,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -40,6 +43,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isMapToolbarEnabled = true
 
+        getMyLocation()
+
+        // Tampilkan semua cerita yang memiliki lokasi pada peta
+        val stories = intent.getParcelableArrayListExtra<ListStoryResponse>(EXTRA_STORY)
+        for (story in stories!!) {
+            if (story.lat != null && story.lon != null) {
+                val location = LatLng(story.lat, story.lon)
+                val markerOptions = MarkerOptions()
+                    .position(location)
+                    .title(story.name)
+                    .snippet(story.description)
+                mMap.addMarker(markerOptions)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -67,6 +84,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             else -> {
                 super.onOptionsItemSelected(item)
             }
+        }
+    }
+
+    private val requestPermissionLauncher =
+        registerForActivityResult(
+            ActivityResultContracts.RequestPermission()
+        ) { isGranted: Boolean ->
+            if (isGranted) {
+                getMyLocation()
+            }
+        }
+    private fun getMyLocation() {
+        if (ContextCompat.checkSelfPermission(
+                this.applicationContext,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            mMap.isMyLocationEnabled = true
+        } else {
+            requestPermissionLauncher.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
         }
     }
 }
