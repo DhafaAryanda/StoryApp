@@ -37,4 +37,8 @@
     <string name="user_detail_title">%1$s\'s Story</string>
     <string name="exitbackpressed">Press back again to exit</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
 </resources>

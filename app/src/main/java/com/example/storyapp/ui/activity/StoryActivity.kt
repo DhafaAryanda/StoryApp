@@ -81,7 +81,12 @@ class StoryActivity : AppCompatActivity() {
                 finish()
                 true
             }
-            else -> true
+            R.id.map_menu -> {
+                startActivity(Intent(this, MapsActivity::class.java))
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
