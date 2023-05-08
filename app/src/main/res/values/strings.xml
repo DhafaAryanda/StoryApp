@@ -41,4 +41,6 @@
     <string name="satellite_type">Satellite</string>
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
+    <string name="location">location</string>
+    <string name="API_error_fetch_data">Error while fetching data</string>
 </resources>

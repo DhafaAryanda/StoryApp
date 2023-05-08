@@ -32,4 +32,10 @@ interface ApiService {
     @GET("stories")
     fun getStories(@Header("Authorization") token: String) : Call<StoryResponse>
 
+    @GET("stories?location=1")
+    fun getStoryListLocation(
+        @Header("Authorization") token: String,
+        @Query("size") size: Int
+    ): Call<StoryResponse>
+
 }

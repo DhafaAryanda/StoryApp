@@ -1,16 +1,20 @@
 package com.example.storyapp.ui.activity
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import com.example.storyapp.R
 import com.example.storyapp.api.ListStoryResponse
 import com.example.storyapp.databinding.ActivityMapsBinding
-import com.example.storyapp.ui.activity.DetailActivity.Companion.EXTRA_STORY
+import com.example.storyapp.preferences.AppPreferences
+import com.example.storyapp.ui.viewmodel.StoryViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -22,6 +26,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
+    private var storyWithLocation = listOf<ListStoryResponse>()
+    private val storyViewModel: StoryViewModel by viewModels {
+        ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +41,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val appPreferences = AppPreferences(this)
+        val token = appPreferences.authToken
+
+        if (token != null) {
+            storyViewModel.getStories(token)
+        }
+        storyViewModel.message.observe(this) {
+            getLocationUser(storyViewModel.story)
+        }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -45,17 +67,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         getMyLocation()
 
-        // Tampilkan semua cerita yang memiliki lokasi pada peta
-        val stories = intent.getParcelableArrayListExtra<ListStoryResponse>(EXTRA_STORY)
-        for (story in stories!!) {
-            if (story.lat != null && story.lon != null) {
-                val location = LatLng(story.lat, story.lon)
-                val markerOptions = MarkerOptions()
-                    .position(location)
-                    .title(story.name)
-                    .snippet(story.description)
-                mMap.addMarker(markerOptions)
+    }
+
+    private fun getLocationUser(story: List<ListStoryResponse>) {
+        if (story.isNotEmpty()) {
+            for (stories in story) {
+                if (stories.lat != null && stories.lon != null){
+                    val position = LatLng(stories.lat, stories.lon)
+                    storyWithLocation = storyWithLocation + stories
+                    mMap.addMarker(
+                        MarkerOptions().position(position).title(stories.name)
+                    )
+                }
             }
+        }
+        if(storyWithLocation.isNotEmpty()) {
+            val latLng = LatLng(storyWithLocation[0].lat!!, storyWithLocation[0].lon!!)
+            mMap.animateCamera(
+                CameraUpdateFactory.newLatLngZoom(
+                    latLng, INITIAL_ZOOM
+                )
+            )
         }
     }
 
@@ -87,6 +119,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+
+
     private val requestPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
@@ -105,5 +139,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
             requestPermissionLauncher.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
         }
+    }
+
+    companion object {
+        const val TAG = "MAP"
+        const val DEFAULT_ZOOM = 15f
+        const val INITIAL_ZOOM = 6f
     }
 }
